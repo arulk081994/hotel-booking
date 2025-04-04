@@ -7,7 +7,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN python -c "from app import app, db; app.app_context().push(); db.create_all()"
+# Create database tables after all files are copied
+RUN python -c "\
+from app import app, db; \
+with app.app_context(): \
+    db.create_all()"
 
 EXPOSE 5000
 
