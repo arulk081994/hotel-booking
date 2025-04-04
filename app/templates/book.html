@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Book a Room</h1>
+<form method="POST">
+    <label>Guest Name:</label>
+    <input type="text" name="name" required>
+    
+    <label>Room Type:</label>
+    <select name="room_type" required>
+        <option value="single">Single</option>
+        <option value="double">Double</option>
+        <option value="suite">Suite</option>
+    </select>
+    
+    <label>Check-in Date:</label>
+    <input type="date" name="check_in" required>
+    
+    <label>Check-out Date:</label>
+    <input type="date" name="check_out" required>
+    
+    <label>Special Requests:</label>
+    <textarea name="requests"></textarea>
+    
+    <button type="submit">Submit Booking</button>
+</form>
+{% endblock %}
